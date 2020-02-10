@@ -109,7 +109,7 @@ mkdir -p tmp
 rm -r tmp/*
 
 # Read the ini file for parameters
-q=$(grep q= etc/rwall.ini | cut -f2- -d '=')
+q=$(grep q= etc/rwall.ini | cut -f2- -d '=' | sed 's/, /\n/g' | shuf -n1)
 res=$(grep res= etc/rwall.ini | cut -f2- -d '=')
 
 # Download the html based on our search parameters
